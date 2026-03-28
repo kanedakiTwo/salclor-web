@@ -1,0 +1,43 @@
+---
+const steps = [
+  { num: '1', title: 'Nos contactas', desc: 'Por WhatsApp o teléfono. Disponibles de 9h a 21h, todos los días.', icon: '💬' },
+  { num: '2', title: 'Llamada telefónica', desc: 'Hablamos contigo para entender tu situación antes de visitarte.', icon: '📞' },
+  { num: '3', title: 'Visita in situ', desc: 'Estudiamos tu piscina en persona. El coste de la visita se descuenta del presupuesto si seguimos adelante.', icon: '🏊' },
+  { num: '4', title: 'Presupuesto sin compromiso', desc: 'Lo recibes en 2 a 4 días laborables según la época del año.', icon: '📋' },
+  { num: '5', title: 'Instalación o intervención', desc: 'Con los tiempos acordados y sin sorpresas.', icon: '🔧' },
+  { num: '6', title: 'Mantenimiento opcional', desc: 'Si lo necesitas: integral, por temporada o visitas puntuales.', icon: '✨' },
+];
+---
+
+<section id="proceso" class="py-20 sm:py-28 bg-bg-light">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary">
+        Así de sencillo es empezar
+      </h2>
+    </div>
+
+    <div class="relative">
+      <!-- Timeline line (desktop) -->
+      <div class="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-accent/20"></div>
+
+      <div class="grid md:grid-cols-3 gap-8 md:gap-6">
+        {steps.map(s => (
+          <div class="relative flex md:flex-col items-start md:items-center text-left md:text-center gap-4 md:gap-0">
+            <!-- Step circle -->
+            <div class="relative z-10 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-accent text-white text-2xl md:mb-4 shrink-0 shadow-md">
+              {s.icon}
+            </div>
+            <!-- Connector line (mobile) -->
+            <div class="md:hidden absolute left-7 top-14 w-0.5 h-full bg-accent/20 -z-0"></div>
+            <div class="pb-4 md:pb-0">
+              <span class="text-xs font-bold text-accent uppercase tracking-wider">Paso {s.num}</span>
+              <h3 class="text-lg font-bold text-primary mt-1 mb-1">{s.title}</h3>
+              <p class="text-sm text-text-light">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

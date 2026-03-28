@@ -1,0 +1,34 @@
+---
+const symptoms = [
+  { icon: '😣', title: 'Piel irritada', desc: 'Picores y rojeces después de cada baño' },
+  { icon: '👁️', title: 'Ojos rojos', desc: 'Escozor que arruina el momento' },
+  { icon: '💰', title: 'Mantenimiento caro', desc: 'Tiempo y dinero en productos químicos' },
+  { icon: '🤢', title: 'Olor a cloro', desc: 'Ese olor fuerte que no desaparece' },
+];
+---
+
+<section id="problema" class="py-20 sm:py-28 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6">
+        ¿Disfrutas de verdad tu piscina?
+      </h2>
+      <p class="text-lg sm:text-xl text-text-light max-w-3xl mx-auto leading-relaxed">
+        Si el mantenimiento te roba tiempo cada semana, a tus hijos les pica la piel o los ojos después de bañarse, el agua huele a cloro incluso recién tratada, o la piscina no está lista cuando quieres usarla... no es normal. Y tiene solución.
+      </p>
+      <p class="mt-6 text-xl sm:text-2xl font-bold text-primary">
+        El problema no eres tú. Es el sistema de cloración.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+      {symptoms.map(s => (
+        <div class="bg-bg-light rounded-2xl p-6 text-center hover:shadow-md transition-shadow duration-300">
+          <span class="text-4xl sm:text-5xl block mb-3">{s.icon}</span>
+          <h3 class="font-bold text-primary text-lg mb-1">{s.title}</h3>
+          <p class="text-sm text-text-light">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1A5276;
+  --color-primary-dark: #133d59;
+  --color-accent: #2980B9;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #1da851;
+  --color-text: #2C3E50;
+  --color-text-light: #5D6D7E;
+  --color-bg-light: #F8FAFB;
+  --color-bg-dark: #0e2a3d;
+
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Scroll animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero should be visible immediately */
+#inicio {
+  opacity: 1;
+  transform: none;
+}

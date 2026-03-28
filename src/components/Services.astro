@@ -1,0 +1,142 @@
+---
+const services = [
+  {
+    category: 'Servicio estrella',
+    highlight: true,
+    items: ['Instalación y mantenimiento de clorador salino (patente propia · fabricantes)'],
+  },
+  {
+    category: 'Depuración y filtración',
+    items: [
+      'Instalación, sustitución y reparación de motores depuradores',
+      'Instalación y mantenimiento de cloradores salinos',
+      'Cambio y mantenimiento de arenas de filtración',
+      'Cambio de filtro y reparación de averías en filtro',
+    ],
+  },
+  {
+    category: 'Tratamiento del agua',
+    items: [
+      'Recuperación de agua en mal estado',
+      'Tratamiento de aguas duras (agua de pozo)',
+    ],
+  },
+  {
+    category: 'Vaso de la piscina',
+    items: [
+      'Impermeabilización para evitar pérdidas de agua',
+      'Lechadas con borada o con resina epóxida',
+      'Pegado de gresite caído en todo tipo de condiciones',
+      'Cambio de revestimientos: gresite, porcelánico, resina de poliéster',
+      'Reparación y sustitución de piedras de coronación',
+      'Escaleras de obra a medida (tamaño y forma según el cliente)',
+    ],
+  },
+  {
+    category: 'Detección y reparación de fugas',
+    items: ['Estudio, localización y solución de fugas en la piscina'],
+  },
+  {
+    category: 'Confort y temperatura',
+    items: [
+      'Instalación de bombas de calor',
+      'Instalación de paneles solares pasivos',
+      'Lonas y mantas térmicas',
+      'Duchas exteriores (normales y solares)',
+    ],
+  },
+  {
+    category: 'Limpieza',
+    items: ['Limpiafondos: clásico, automático y autónomo'],
+  },
+  {
+    category: 'Área exterior',
+    items: ['Instalación de trampolines y toboganes'],
+  },
+  {
+    category: 'Construcción y reconstrucción',
+    items: [
+      'Construcción de piscinas desde cero',
+      'Reconstrucción y renovación de piscinas existentes',
+    ],
+  },
+  {
+    category: 'Mantenimiento',
+    items: [
+      'Mantenimiento integral',
+      'Mantenimiento por temporada',
+      'Visitas puntuales',
+    ],
+  },
+];
+---
+
+<section id="servicios" class="py-20 sm:py-28 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-6">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6">
+        Todo lo que necesita tu piscina, en un solo sitio
+      </h2>
+      <p class="text-lg sm:text-xl text-text-light max-w-3xl mx-auto">
+        Somos especialistas en cloración salina, pero ofrecemos el servicio completo de mantenimiento e instalación de piscinas. Todo con la misma calidad y el mismo criterio.
+      </p>
+    </div>
+
+    <div class="mt-12 space-y-3">
+      {services.map((s, i) => (
+        <div class={`rounded-2xl border overflow-hidden ${s.highlight ? 'border-accent bg-accent/5 ring-2 ring-accent/20' : 'border-gray-200 bg-white'}`}>
+          <button
+            class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-bg-light/50 transition-colors"
+            aria-expanded={s.highlight ? 'true' : 'false'}
+            data-index={i}
+          >
+            <span class={`text-lg font-bold ${s.highlight ? 'text-accent' : 'text-primary'}`}>
+              {s.highlight && '⭐ '}{s.category}
+            </span>
+            <svg class="accordion-icon w-5 h-5 text-text-light transition-transform duration-300 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class={`accordion-content px-6 overflow-hidden transition-all duration-300 ${s.highlight ? 'max-h-96 pb-5' : 'max-h-0'}`}>
+            <ul class="space-y-2">
+              {s.items.map(item => (
+                <li class="flex items-start gap-3 text-text">
+                  <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.accordion-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling as HTMLElement;
+      const icon = btn.querySelector('.accordion-icon') as HTMLElement;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      if (isOpen) {
+        content.style.maxHeight = '0';
+        content.classList.remove('pb-5');
+        btn.setAttribute('aria-expanded', 'false');
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        content.style.maxHeight = content.scrollHeight + 20 + 'px';
+        content.classList.add('pb-5');
+        btn.setAttribute('aria-expanded', 'true');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    });
+
+    // Initialize open state for highlighted items
+    if (btn.getAttribute('aria-expanded') === 'true') {
+      const icon = btn.querySelector('.accordion-icon') as HTMLElement;
+      if (icon) icon.style.transform = 'rotate(180deg)';
+    }
+  });
+</script>
