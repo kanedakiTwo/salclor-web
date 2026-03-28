@@ -1,37 +1,42 @@
 ---
-const stats = [
-  { value: '1991', label: 'Fundación' },
-  { value: '+35 años', label: 'Experiencia' },
-  { value: '+1.000', label: 'Instalaciones' },
-  { value: '3 patentes', label: 'Propias' },
-];
+import t from '../i18n/es';
 ---
 
 <section id="historia" class="py-20 sm:py-28 bg-primary text-white">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
-        Lo inventamos nosotros. Y seguimos siendo los mejores.
+        {t.history.title}
       </h2>
     </div>
 
-    <div class="max-w-3xl mx-auto text-center mb-14">
-      <p class="text-lg text-white/80 leading-relaxed mb-4">
-        Salclor SL lleva desde 1991 haciendo lo que hoy muchos intentan copiar. Fuimos los primeros en instalar un sistema de cloración salina en España: tenemos piscinas funcionando desde tres años antes de que registráramos la patente.
-      </p>
-      <p class="text-lg text-white/80 leading-relaxed mb-4">
-        Somos fabricantes, no distribuidores. Titulares de la primera patente de clorador salino, la patente de clorador antialgas y la patente de eficiencia del circuito. No aprendimos esto de un proveedor. Lo desarrollamos nosotros.
-      </p>
-      <p class="text-lg text-white font-semibold leading-relaxed">
-        Más de 35 años después, seguimos siendo los que más saben. Si tienes un problema con tu piscina que otros no han sabido resolver, es muy probable que nosotros ya lo hayamos visto antes.
-      </p>
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10 mb-14">
+      <img
+        src="/images/patente-salclor-1991.jpeg"
+        alt={t.history.patentAlt}
+        class="w-56 md:w-64 rounded-lg shadow-lg border-2 border-white/20 shrink-0"
+        width="800"
+        height="1067"
+        loading="lazy"
+      />
+      <div class="text-center md:text-left">
+        <p class="text-lg text-white/80 leading-relaxed mb-4">
+          {t.history.paragraphs[0]}
+        </p>
+        <p class="text-lg text-white/80 leading-relaxed mb-4">
+          {t.history.paragraphs[1]}
+        </p>
+        <p class="text-lg text-white font-semibold leading-relaxed">
+          {t.history.paragraphs[2]}
+        </p>
+      </div>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      {stats.map(s => (
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
-          <div class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-1">{s.value}</div>
-          <div class="text-sm sm:text-base text-white/60 font-medium uppercase tracking-wider">{s.label}</div>
+      {t.history.stats.map(s => (
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 text-center">
+          <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-1">{s.value}</div>
+          <div class="text-xs sm:text-sm text-white/60 font-medium uppercase tracking-wider">{s.label}</div>
         </div>
       ))}
     </div>

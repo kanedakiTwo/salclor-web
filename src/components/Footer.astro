@@ -1,4 +1,5 @@
 ---
+import t from '../i18n/es';
 const year = new Date().getFullYear();
 ---
 
@@ -6,12 +7,16 @@ const year = new Date().getFullYear();
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="text-center sm:text-left">
-        <span class="text-xl font-extrabold text-white font-heading tracking-tight">SALCLOR</span>
-        <p class="text-sm mt-1">Los inventores de la cloración salina · Desde 1991</p>
+        <img src="/images/salclor-logo.png" alt={t.header.brand} class="h-10 w-auto brightness-0 invert" width="400" height="218" />
+        <p class="text-sm mt-1">{t.footer.tagline}</p>
       </div>
       <div class="text-sm text-center sm:text-right">
-        <p>&copy; {year} Salclor SL. Todos los derechos reservados.</p>
-        <p class="mt-1">Madrid, España</p>
+        <p>&copy; {year} {t.footer.rights}</p>
+        <p class="mt-1">{t.footer.location}</p>
+        <div class="mt-2 flex gap-4 justify-center sm:justify-end">
+          <a href="/aviso-legal" class="hover:text-white transition-colors">{t.legal.title}</a>
+          <a href="/politica-privacidad" class="hover:text-white transition-colors">{t.privacy.title}</a>
+        </div>
       </div>
     </div>
   </div>

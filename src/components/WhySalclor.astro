@@ -1,20 +1,10 @@
 ---
-const pillars = [
-  {
-    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
-    title: 'Los inventores y fabricantes',
-    text: 'Salclor SL es titular de la primera patente de clorador salino en España. Somos fabricantes, no distribuidores. También contamos con patentes de clorador antialgas y de eficiencia del circuito. Antes de que este sistema tuviera nombre, ya teníamos piscinas funcionando.',
-  },
-  {
-    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
-    title: 'Capacidad resolutiva',
-    text: 'Resolvemos lo que otras empresas no saben. Desde recuperar agua en mal estado hasta tratar agua de pozo con alta dureza. Si tienes un problema que nadie ha sabido solucionar, lo más probable es que nosotros ya lo hayamos visto antes.',
-  },
-  {
-    icon: `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>`,
-    title: 'Calidad que dura',
-    text: 'Nuestros equipos están certificados y están fabricados para durar. Más de 1.000 instalaciones en Madrid desde 1991 lo avalan. Ofrecemos garantía en materiales e instalación en todos nuestros trabajos.',
-  },
+import t from '../i18n/es';
+
+const icons = [
+  `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
+  `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+  `<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>`,
 ];
 ---
 
@@ -22,14 +12,14 @@ const pillars = [
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary">
-        No aprendimos esto en un curso. Lo inventamos.
+        {t.whySalclor.title}
       </h2>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
-      {pillars.map(p => (
+      {t.whySalclor.pillars.map((p, i) => (
         <div class="bg-bg-light rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300">
-          <div class="text-accent mb-4" set:html={p.icon} />
+          <div class="text-accent mb-4" set:html={icons[i]} />
           <h3 class="text-xl font-bold text-primary mb-3">{p.title}</h3>
           <p class="text-text-light leading-relaxed">{p.text}</p>
         </div>

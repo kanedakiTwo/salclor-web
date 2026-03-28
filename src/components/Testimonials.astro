@@ -1,30 +1,23 @@
 ---
-const testimonials = [
-  { text: 'Gracias a vosotros mis hijos con piel atópica pueden bañarse todo el tiempo que quieran.', author: 'Cliente en Madrid' },
-  { text: 'Ya no me pican los ojos cuando buceo. Antes era impensable.', author: 'Cliente en Madrid' },
-  { text: 'Qué gusto que mis hijos se puedan bañar sin que les salga el pelo verde.', author: 'Cliente en Madrid' },
-  { text: 'Es un antes y un después. Un salto de calidad que merece cada euro pagado.', author: 'Cliente en Madrid' },
-  { text: 'El mantenimiento ahora es mucho más sencillo. Con Salclor me despreocupo.', author: 'Cliente en Madrid' },
-  { text: 'Qué agradable la sensación en la piel. No tiene nada que ver con antes.', author: 'Cliente en Madrid' },
-];
+import t from '../i18n/es';
 ---
 
 <section id="testimonios" class="py-20 sm:py-28 bg-bg-light">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary">
-        Lo que dicen nuestros clientes
+        {t.testimonials.title}
       </h2>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {testimonials.map(t => (
+      {t.testimonials.items.map(item => (
         <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
           <svg class="w-8 h-8 text-accent/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H0z"/>
           </svg>
-          <p class="text-text italic text-lg leading-relaxed mb-4">"{t.text}"</p>
-          <p class="text-sm text-text-light font-medium">— {t.author}</p>
+          <p class="text-text italic text-lg leading-relaxed mb-4">"{item.text}"</p>
+          <p class="text-sm text-text-light font-medium">— {item.author}, <span class="text-accent">{item.location}</span></p>
         </div>
       ))}
     </div>

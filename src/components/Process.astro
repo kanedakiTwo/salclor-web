@@ -1,39 +1,57 @@
 ---
-const steps = [
-  { num: '1', title: 'Nos contactas', desc: 'Por WhatsApp o teléfono. Disponibles de 9h a 21h, todos los días.', icon: '💬' },
-  { num: '2', title: 'Llamada telefónica', desc: 'Hablamos contigo para entender tu situación antes de visitarte.', icon: '📞' },
-  { num: '3', title: 'Visita in situ', desc: 'Estudiamos tu piscina en persona. El coste de la visita se descuenta del presupuesto si seguimos adelante.', icon: '🏊' },
-  { num: '4', title: 'Presupuesto sin compromiso', desc: 'Lo recibes en 2 a 4 días laborables según la época del año.', icon: '📋' },
-  { num: '5', title: 'Instalación o intervención', desc: 'Con los tiempos acordados y sin sorpresas.', icon: '🔧' },
-  { num: '6', title: 'Mantenimiento opcional', desc: 'Si lo necesitas: integral, por temporada o visitas puntuales.', icon: '✨' },
+import t from '../i18n/es';
+
+const icons = [
+  `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />`,
+  `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />`,
+  `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />`,
+  `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 3h2.25A2.251 2.251 0 0117.85 4.108m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" />`,
 ];
 ---
 
 <section id="proceso" class="py-20 sm:py-28 bg-bg-light">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-14">
+    <div class="text-center mb-16">
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary">
-        Así de sencillo es empezar
+        {t.process.title}
       </h2>
+      <p class="mt-4 text-lg text-text-light max-w-2xl mx-auto">
+        {t.process.subtitle}
+      </p>
     </div>
 
-    <div class="relative">
-      <!-- Timeline line (desktop) -->
-      <div class="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-accent/20"></div>
+    <!-- Desktop: horizontal timeline -->
+    <div class="hidden md:block">
+      <div class="grid grid-cols-4 gap-0 relative">
+        <div class="absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-accent/20 z-0"></div>
 
-      <div class="grid md:grid-cols-3 gap-8 md:gap-6">
-        {steps.map(s => (
-          <div class="relative flex md:flex-col items-start md:items-center text-left md:text-center gap-4 md:gap-0">
-            <!-- Step circle -->
-            <div class="relative z-10 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-accent text-white text-2xl md:mb-4 shrink-0 shadow-md">
-              {s.icon}
+        {t.process.steps.map((s, i) => (
+          <div class="flex flex-col items-center text-center relative z-10">
+            <div class="w-20 h-20 rounded-full bg-accent flex items-center justify-center shadow-lg mb-5">
+              <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[i]} />
             </div>
-            <!-- Connector line (mobile) -->
-            <div class="md:hidden absolute left-7 top-14 w-0.5 h-full bg-accent/20 -z-0"></div>
-            <div class="pb-4 md:pb-0">
-              <span class="text-xs font-bold text-accent uppercase tracking-wider">Paso {s.num}</span>
+            <span class="text-xs font-bold text-accent uppercase tracking-widest mb-1">{t.process.stepLabel} {i + 1}</span>
+            <h3 class="text-lg font-bold text-primary mb-2">{s.title}</h3>
+            <p class="text-sm text-text-light leading-relaxed max-w-[220px]">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mobile: vertical timeline -->
+    <div class="md:hidden relative">
+      <div class="absolute left-[27px] top-0 bottom-0 w-0.5 bg-accent/20"></div>
+
+      <div class="space-y-10">
+        {t.process.steps.map((s, i) => (
+          <div class="flex items-start gap-5 relative">
+            <div class="w-14 h-14 rounded-full bg-accent flex items-center justify-center shadow-lg shrink-0 z-10">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[i]} />
+            </div>
+            <div class="pt-1">
+              <span class="text-xs font-bold text-accent uppercase tracking-widest">{t.process.stepLabel} {i + 1}</span>
               <h3 class="text-lg font-bold text-primary mt-1 mb-1">{s.title}</h3>
-              <p class="text-sm text-text-light">{s.desc}</p>
+              <p class="text-sm text-text-light leading-relaxed">{s.desc}</p>
             </div>
           </div>
         ))}

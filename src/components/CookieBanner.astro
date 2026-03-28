@@ -1,0 +1,39 @@
+---
+import t from '../i18n/es';
+---
+
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[60] bg-bg-dark text-white p-4 sm:p-5 shadow-lg hidden">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-white/80 text-center sm:text-left">
+      {t.cookies.message} <a href="/politica-privacidad" class="underline hover:text-white">{t.cookies.link}</a>.
+    </p>
+    <div class="flex gap-3 shrink-0">
+      <button id="cookie-reject" class="px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors">
+        {t.cookies.reject}
+      </button>
+      <button id="cookie-accept" class="px-5 py-2 text-sm font-bold bg-accent hover:bg-accent/80 rounded-lg transition-colors">
+        {t.cookies.accept}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const rejectBtn = document.getElementById('cookie-reject');
+
+  if (!localStorage.getItem('cookie-consent')) {
+    banner?.classList.remove('hidden');
+  }
+
+  acceptBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'accepted');
+    banner?.classList.add('hidden');
+  });
+
+  rejectBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'rejected');
+    banner?.classList.add('hidden');
+  });
+</script>

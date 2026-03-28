@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import t from '../i18n/es';
 ---
 
 <html lang="es">
@@ -10,26 +11,60 @@ import '../styles/global.css';
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO -->
-    <title>Salclor SL | Especialistas en Cloración Salina · Madrid</title>
-    <meta name="description" content="Los inventores de la cloración salina en España. Instalación, mantenimiento y reparación de piscinas en Madrid desde 1991. Más de 1.000 instalaciones. Pide presupuesto." />
-    <meta name="keywords" content="cloración salina Madrid, clorador salino instalación, mantenimiento piscinas Madrid, empresa piscinas Madrid" />
+    <title>{t.seo.title}</title>
+    <meta name="description" content={t.seo.description} />
+    <meta name="keywords" content={t.seo.keywords} />
+    <link rel="canonical" href="https://salclor.es/" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Salclor SL | Especialistas en Cloración Salina · Madrid" />
-    <meta property="og:description" content="Los inventores de la cloración salina en España. Más de 1.000 instalaciones en Madrid desde 1991." />
+    <meta property="og:title" content={t.seo.title} />
+    <meta property="og:description" content={t.seo.ogDescription} />
+    <meta property="og:image" content="https://salclor.es/images/hero.jpeg" />
+    <meta property="og:url" content="https://salclor.es/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
 
-    <!-- Google Fonts -->
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="/images/hero.jpeg" />
+
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://formsubmit.co" />
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data: LocalBusiness -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Salclor SL",
+      "description": t.seo.description,
+      "url": "https://salclor.es",
+      "telephone": "+34681105234",
+      "email": t.contact.email,
+      "image": "https://salclor.es/images/hero.jpeg",
+      "logo": "https://salclor.es/images/salclor-logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Comunidad de Madrid",
+        "addressCountry": "ES"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Comunidad de Madrid"
+      },
+      "openingHours": "Mo-Fr 09:00-21:00",
+      "foundingDate": "1991",
+      "priceRange": "€€",
+      "sameAs": []
+    })} />
   </head>
   <body class="antialiased">
     <slot />
 
     <script>
-      // Fade-in animation on scroll
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach(entry => {
@@ -47,7 +82,6 @@ import '../styles/global.css';
         observer.observe(section);
       });
 
-      // Active nav link on scroll
       const sections = document.querySelectorAll('section[id]');
       const navLinks = document.querySelectorAll('header a[href^="#"]');
 
@@ -55,7 +89,7 @@ import '../styles/global.css';
         let current = '';
         sections.forEach(section => {
           const el = section as HTMLElement;
-          if (window.scrollY >= el.offsetTop - 100) {
+          if (window.scrollY >= el.offsetTop - 80) {
             current = el.id;
           }
         });

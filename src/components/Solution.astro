@@ -1,48 +1,32 @@
 ---
-const traditional = [
-  'Cloro químico comprado y manipulado',
-  'Olor fuerte y persistente',
-  'Irritación en piel, ojos y pelo',
-  'Mantenimiento frecuente y costoso',
-  'Bidones de productos tóxicos',
-];
-
-const saline = [
-  'Desinfectante generado naturalmente a partir de sal',
-  'Sin olor fuerte',
-  'Agua suave, sin irritaciones',
-  'Mantenimiento mucho más sencillo',
-  'Sin bidones ni productos químicos',
-];
+import t from '../i18n/es';
 ---
 
 <section id="solucion" class="py-20 sm:py-28 bg-bg-light">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-6">
-        La cloración salina: agua limpia sin química agresiva
+        {t.solution.title}
       </h2>
       <p class="text-lg sm:text-xl text-text-light max-w-3xl mx-auto leading-relaxed">
-        Un sistema de cloración salina no añade cloro comprado a tu piscina. En su lugar, genera el desinfectante de forma natural directamente en el agua a partir de sal. Sin productos tóxicos añadidos. Sin bidones. Sin manipulación de químicos.
+        {t.solution.description}
       </p>
       <p class="mt-4 text-lg text-text-light max-w-3xl mx-auto leading-relaxed">
-        El resultado es agua suave al tacto, sin olor fuerte, sin irritaciones. Los niños con piel atópica pueden bañarse tranquilamente. Los ojos no escuecen. El pelo no se estropea.
+        {t.solution.description2}
       </p>
       <p class="mt-4 text-lg sm:text-xl font-semibold text-primary">
-        Y el mantenimiento es mucho más sencillo que con el cloro tradicional.
+        {t.solution.punchline}
       </p>
     </div>
 
-    <!-- Comparison -->
     <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
-      <!-- Traditional -->
       <div class="bg-white rounded-2xl p-6 sm:p-8 border-2 border-red-200">
         <h3 class="text-xl font-bold text-red-600 mb-5 flex items-center gap-2">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-          Cloración tradicional
+          {t.solution.traditionalTitle}
         </h3>
         <ul class="space-y-3">
-          {traditional.map(item => (
+          {t.solution.traditional.map(item => (
             <li class="flex items-start gap-3 text-text-light">
               <svg class="w-5 h-5 text-red-400 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
               {item}
@@ -51,14 +35,13 @@ const saline = [
         </ul>
       </div>
 
-      <!-- Saline -->
       <div class="bg-white rounded-2xl p-6 sm:p-8 border-2 border-whatsapp/40 shadow-md">
         <h3 class="text-xl font-bold text-primary mb-5 flex items-center gap-2">
           <svg class="w-6 h-6 text-whatsapp" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-          Cloración salina Salclor
+          {t.solution.salineTitle}
         </h3>
         <ul class="space-y-3">
-          {saline.map(item => (
+          {t.solution.saline.map(item => (
             <li class="flex items-start gap-3 text-text">
               <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
               {item}
